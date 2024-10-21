@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "Transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "details": {
+      "type": "text"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "date_spent": {
+      "type": "date"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Income",
+        "Expense"
+      ]
+    },
+    "budget": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::budget.budget",
+      "inversedBy": "transactions"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}
